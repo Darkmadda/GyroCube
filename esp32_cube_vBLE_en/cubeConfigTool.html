@@ -213,6 +213,9 @@ body {
                     <div class="col"><button id="calibrateVertexButton" class="btn btn-warning px-5 py-3">Vertex</button></div>
                     <div class="col"><button id="calibrateEdgeButton" class="btn btn-warning px-5 py-3">Edge</button></div>
                 </div>
+                <div class="row">
+                    <div class="col"><button id="calibrateResetButton" class="btn btn-warning px-5 py-3">Reset</button></div>
+                </div>
             </div>
         </div>
         <div class="row shadow-lg mb-3 disconnected">
@@ -387,6 +390,7 @@ body {
     const testMotorsButton = document.getElementById('testMotorsButton');
     const calibrateVertexButton = document.getElementById('calibrateVertexButton');
     const calibrateEdgeButton = document.getElementById('calibrateEdgeButton');
+    const calibrateResetButton = document.getElementById('calibrateResetButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('con');
@@ -428,6 +432,7 @@ body {
 
     const save_vertex = document.getElementById('save_vertex');
     const save_edge = document.getElementById('save_edge');
+    const save_reset = document.getElementById('save_reset');
     const rgbColor = document.getElementById('rgbColor');
     $(function(){
         $('#rgbColorE').on('change', function(e){color = $('#rgbColorE').val(); writeOnCharacteristic("7e" + color.replace("#",""))});
@@ -458,6 +463,7 @@ body {
 
     save_vertex.addEventListener('click', () => writeOnCharacteristic("6v"));
     save_edge.addEventListener('click', () => writeOnCharacteristic("6e"));
+    save_reset.addEventListener('click', () => writeOnCharacteristic("6r"));
     saveMotorsButton.addEventListener('click', () => writeOnCharacteristic("8" + $('#motor1_config').val() + $('#motor2_config').val() + $('#motor3_config').val()));
 
     //Define BLE Device Specs
@@ -516,6 +522,7 @@ body {
 
     calibrateVertexButton.addEventListener('click', () => writeOnCharacteristic(2))
     calibrateEdgeButton.addEventListener('click', () => writeOnCharacteristic(3))
+    calibrateReset.addEventListener('click', () => writeOnCharacteristic('6r'))
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
         if (!navigator.bluetooth) {

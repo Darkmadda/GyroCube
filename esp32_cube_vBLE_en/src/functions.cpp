@@ -539,6 +539,9 @@ void saveSettings(char t) {
         pSensorCharacteristic->setValue("*a*Edge Settings Saved");
         pSensorCharacteristic->notify();
       }
+      if (t== SETTINGS_RESET){
+        resetCalibration();
+      }
 }
 int Tuning() {
 
@@ -824,9 +827,29 @@ void musicLoop(void* pvParameters){
           //delay(pauseBetweenNotes);
           noTone(BUZZER);
         }
-  }
-        
-  }
+  }   
+}
+
+void resetCalibration(){
+  offsets.acXe = 0;
+  offsets.acYe = 0;
+  offsets.acZe = 0;
+  colorLed(0, 0, 0, 1, 3, 0);
+
+  offsets.ID = 0;
+  offsets.acXv = 0;
+  offsets.acYv = 0;
+  offsets.acZv = 0;
+  save();
+  beep();
+
+  pSensorCharacteristic->setValue("*a*Calibration Reset");
+  pSensorCharacteristic->notify();
+  vertex_calibrated = false;
+  calibrated = false;
+  calibrating = false;
+}
+
 void saveMotors(int mot1, int mot2, int mot3) {
   offsets.motor1 = mot1;
   offsets.motor2 = mot2;

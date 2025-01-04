@@ -1,6 +1,6 @@
 #pragma once
 #include <Arduino.h>
-#define FIRMWARE_VERSION 1.11
+#define FIRMWARE_VERSION 1.12
 #define BUZZER      27
 #define VBAT        34
 #define INT_LED     39

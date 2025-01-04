@@ -113,12 +113,8 @@ void setup() {
     offsets.motor1 = 0;
     offsets.motor2 = 1;
     offsets.motor3 = 2;
-    Serial.println("reseting pins");
     save();
   }
-    Serial.println(m1);
-    Serial.println(m2);
-    Serial.println(m3);
   DIR1      = motors[m1][0];
   ENC1_1    = motors[m1][1];
   ENC1_2    = motors[m1][2];

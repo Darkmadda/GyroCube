@@ -25,6 +25,7 @@
 #define SETTINGS_QUERY 'q'
 #define SETTINGS_SAVE_VERTEX 'v'
 #define SETTINGS_SAVE_EDGE 'e'
+#define SETTINGS_RESET 'r'
 
 extern BLECharacteristic* pSensorCharacteristic;
 extern BLECharacteristic* pLedCharacteristic; 
@@ -60,6 +61,7 @@ extern void calibrate_vertex();
 extern void getSettings();
 extern void setSettings(char s, char c);
 extern void saveSettings(char t);
+extern void resetCalibration();
 extern void balancing(String type);
 extern void notBalancing(); 
 extern void setLeds(char t, int r, int g, int b);
