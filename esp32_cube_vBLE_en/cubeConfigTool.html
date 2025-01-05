@@ -463,7 +463,6 @@ body {
 
     save_vertex.addEventListener('click', () => writeOnCharacteristic("6v"));
     save_edge.addEventListener('click', () => writeOnCharacteristic("6e"));
-    save_reset.addEventListener('click', () => writeOnCharacteristic("6r"));
     saveMotorsButton.addEventListener('click', () => writeOnCharacteristic("8" + $('#motor1_config').val() + $('#motor2_config').val() + $('#motor3_config').val()));
 
     //Define BLE Device Specs
@@ -522,7 +521,7 @@ body {
 
     calibrateVertexButton.addEventListener('click', () => writeOnCharacteristic(2))
     calibrateEdgeButton.addEventListener('click', () => writeOnCharacteristic(3))
-    calibrateReset.addEventListener('click', () => writeOnCharacteristic('6r'))
+    calibrateResetButton.addEventListener('click', () => writeOnCharacteristic('6r'))
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
         if (!navigator.bluetooth) {
